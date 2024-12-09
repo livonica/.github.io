@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+	--primary-color: #ff66ab;
+	--secondary-color: #6a5acd;
+	--background-color: #f0f0f0;
+	--text-color: #333;
+	--card-background: rgba(255, 255, 255, 0.8);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(
+		135deg,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	color: var(--text-color);
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-x: hidden;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 2rem;
+	padding: 2rem;
+	background: var(--card-background);
+	border-radius: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(10px);
+	animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.navbar {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+
+.nav-link {
+	color: var(--text-color);
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	margin: 0 0.5rem;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.nav-link::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.2),
+		transparent
+	);
+	transition: all 0.5s ease;
+}
+
+.nav-link:hover::before {
+	left: 100%;
+}
+
+.nav-link.active {
+	background: linear-gradient(
+		90deg,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	color: white;
+}
+
+.profile {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.avatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 2rem;
+	border: 5px solid white;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+	transform: scale(1.05);
+}
+
+.avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.user-info h1 {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+	background: linear-gradient(
+		90deg,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.user-info p {
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.stat-card {
+	background: var(--card-background);
+	border-radius: 15px;
+	padding: 1.5rem;
+	text-align: center;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+	transition: all 0.3s ease;
+	will-change: transform;
+}
+
+.stat-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+	color: var(--primary-color);
+}
+
+.stat-card p {
+	font-size: 2rem;
+	font-weight: bold;
+	background: linear-gradient(
+		90deg,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.detail-section {
+	background: var(--card-background);
+	border-radius: 15px;
+	padding: 1.5rem;
+	margin-bottom: 1rem;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.detail-section h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: var(--primary-color);
+}
+
+.detail-item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+}
+
+.detail-item span:first-child {
+	color: #666;
+}
+
+.detail-item span:last-child {
+	font-weight: 600;
+}
+
+.progress-bar {
+	height: 10px;
+	background: #e0e0e0;
+	border-radius: 5px;
+	overflow: hidden;
+	margin-top: 0.5rem;
+}
+
+.progress {
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		var(--primary-color),
+		var(--secondary-color)
+	);
+	border-radius: 5px;
+	transition: width 1s ease-out;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.animate-slide-in {
+	animation: slideIn 0.5s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+	.container {
+		margin: 1rem;
+		padding: 1rem;
+	}
+
+	.profile {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.avatar {
+		margin-right: 0;
+		margin-bottom: 1rem;
+	}
+
+	.stats-grid {
+		grid-template-columns: 1fr;
+	}
+}
+/* America sosati */
